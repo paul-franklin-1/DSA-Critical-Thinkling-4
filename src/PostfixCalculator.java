@@ -15,7 +15,7 @@ public class PostfixCalculator {
                     case '-' -> operand1 - operand2;
                     case '*' -> operand1 * operand2;
                     case '/' -> operand1 / operand2;
-                    default -> throw new IllegalArgumentException("Invalid operator");
+                    default -> throw new IllegalArgumentException("Invalid operator: " + c);
                 };
                 stack.push(result);
             }
@@ -32,21 +32,21 @@ public class PostfixCalculator {
         try {
             int result = calculator.evaluatePostfix("82/");
             System.out.println("Result: " + result);
-        } catch (EmptyStackException e) {
+        } catch (IllegalArgumentException e) {
             System.out.println("Error evaluating expression: " + e.getMessage());
         }
 
         try {
             int result2 = calculator.evaluatePostfix("26+2*");
             System.out.println("Result 2: " + result2);
-        } catch (EmptyStackException e) {
+        } catch (IllegalArgumentException e) {
             System.out.println("Error evaluating expression: " + e.getMessage());
         }
 
         try {
-            int result3 = calculator.evaluatePostfix("9-");
+            int result3 = calculator.evaluatePostfix("99");
             System.out.println("Result 3: " + result3);
-        } catch (EmptyStackException e) {
+        } catch (IllegalArgumentException e) {
             System.out.println("Error evaluating expression: " + e.getMessage());
         }
 
