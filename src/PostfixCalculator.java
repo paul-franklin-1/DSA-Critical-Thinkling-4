@@ -1,6 +1,19 @@
 import java.util.Stack;
 
+/**
+ * This class represents a postfix calculator, which evaluates postfix expressions
+ * containing single-digit operands and the operators '+', '-', '*', and '/'.
+ * It provides a method {@code evaluatePostfix} to evaluate a given postfix expression
+ * and return the result.
+ */
 public class PostfixCalculator {
+    /**
+     * Evaluates the given postfix expression and returns the result.
+     * The expression should contain single-digit operands and the operators '+', '-', '*', and '/'.
+     * @param postfixExpression the postfix expression to be evaluated
+     * @return the result of the evaluation
+     * @throws IllegalArgumentException if the expression is invalid or cannot be evaluated
+     */
     public int evaluatePostfix(String postfixExpression){
         Stack<Integer> stack = new Stack<>();
         for (char c : postfixExpression.toCharArray()) {
@@ -27,6 +40,12 @@ public class PostfixCalculator {
                 throw new IllegalArgumentException("Invalid expression: Too many operands");}
 
         return stack.pop();}
+
+    /**
+     * demonstrates the usage of the evaluatePostfix method by evaluating
+     * a few sample postfix expressions and printing the results.
+     * @param args
+     */
     public static void main(String[] args){
         PostfixCalculator calculator = new PostfixCalculator();
         try {
